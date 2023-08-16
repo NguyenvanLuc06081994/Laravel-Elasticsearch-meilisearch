@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Scout\Searchable;
 
 class Article extends Model
@@ -24,6 +25,7 @@ class Article extends Model
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'published' => $this->published,
+            'user_id' => $this->user_id,
         ];
     }
 
@@ -36,6 +38,15 @@ class Article extends Model
             'created_at',
             'updated_at',
             'published',
+            'user_id',
         ];
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

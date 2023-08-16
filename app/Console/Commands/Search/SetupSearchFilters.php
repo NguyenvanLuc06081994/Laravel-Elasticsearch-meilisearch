@@ -9,9 +9,7 @@ use Meilisearch\Exceptions\ApiException;
 
 class SetupSearchFilters extends Command
 {
-    protected $signature = 'scout:filters
-        {index}
-    ';
+    protected $signature = 'scout:filters {index}';
 
     protected $description = 'Register filters against a search index.';
 
